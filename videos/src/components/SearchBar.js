@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
         event.preventDefault();
     };
 
+    
     render() {
         return (
         <div className="search-bar ui segment">
