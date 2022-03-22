@@ -27,11 +27,17 @@ const Search = () => {
     const renderedResults = results.map((result) => {
         return (
         <div key={result.pageid} className="item">
+            <div className="right floated content">
+                <a 
+                className="ui button"
+                href={`https://en.wikipedia.org?curid=${result.pageid}`}
+                >Go</a>
+            </div>
             <div className="content">
                 <div className="header">
-                    {results.title}
-                </div>
-                {results.snippet}
+                    {result.title}
+                </div>              
+                <span dangerouslySetInnerHTML={{ __html: result.snippet}}></span>
             </div>
         </div>
         );
@@ -45,7 +51,7 @@ const Search = () => {
                     <input 
                     className="input"
                     value={term}
-                    onChange={e => setTerm(e.target.value)}
+                    onChange={(e) => setTerm(e.target.value)}
                      />
                </div>
            </div>
