@@ -1,12 +1,14 @@
 //we only need to import React when we write JSX
 // import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Route = ({ path, children }) => {
+    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
     useEffect(() => {
         
         const onLocationChange = () => {
-            console.log('aaa');
+            setCurrentPath(window.location.pathname);
         };
 
 
@@ -18,7 +20,7 @@ const Route = ({ path, children }) => {
     }, []);
 
 
-    return window.location.pathname === path
+    return currentPath === path
     ? children
     : null;
 };
